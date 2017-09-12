@@ -26,7 +26,7 @@ import 'fetch-again';
 <script src="dist/fetch-again.umd.js"></script>
 ```
 
-fetchAgain() will be now available from window
+```fetchAgain()``` will be now available from window
 
 ### API
 
@@ -35,10 +35,10 @@ fetchAgain(url, requestLimit, delay, fetchOptions)
     .then((response) => console.log(response))
     .catch((error)) => console.log((error));
 ```
-* url: address to fetch (default undefined)
-* requestLimit: number of retimes to attemp fetching (default 3)
-* delay: number of milliseconds to wait for next fetch if the actual one fails (defaul 1000)
-* fetchOptions: options for [fetch API](https://github.github.io/fetch), can be an object or a Request (default undefined)
+* ```url:``` address to fetch (default undefined)
+* ```requestLimit:``` number of retimes to attemp fetching (default 3)
+* ```delay:``` number of milliseconds to wait for next fetch if the actual one fails (defaul 1000)
+* ```fetchOptions:``` options for [fetch API](https://github.github.io/fetch), can be an object or a Request (default undefined)
 
 ### Example
 
@@ -46,8 +46,8 @@ fetchAgain(url, requestLimit, delay, fetchOptions)
 fetchAgain('https://www.somedomain.io', 5 , 2000 , {
         method: 'POST',
         content:'no-cors'
-        }
-    ).then((response) => console.log(response))
+    })
+    .then((response) => console.log(response))
     .catch((error)) => console.log((error));
 ```
 
