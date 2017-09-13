@@ -1,6 +1,6 @@
 {
   "name": "fetch-again",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "fetch wrapper adding retry and timeout functionality without replacing the actual fetch",
   "main": "dist/fetch-again.umd.js",
   "module": "dist/fetch-again.js",

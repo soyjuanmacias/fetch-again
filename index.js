@@ -1,12 +1,13 @@
+const environment = (typeof module !== 'undefined' && module.exports) ? global : window;
+
 (function checkForFetch() {
     const polyfillUrl = 'https://github.com/github/fetch';
-    let environment = (typeof module !== 'undefined' && module.exports) ? global : window;
     if (!environment || !environment.fetch) {
         throw new Error(`Seems that fetch is not supported in your environment, take a look at the polyfill here: ${polyfillUrl}`);
     }
 })();
 
-window.fetchAgain = function fetchAgain(url, requestLimit = 3, delay = 1000, fetchOptions = {}) {
+environment.fetchAgain = function fetchAgain(url, requestLimit = 3, delay = 1000, fetchOptions = {}) {
     return new Promise((resolve, reject) => {
         function success(response) {
             resolve(response);

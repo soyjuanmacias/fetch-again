@@ -1,6 +1,6 @@
 # FETCH-AGAIN
 
-fetch wrapper adding retry and timeout functionality without replacing the actual fetch.
+fetch wrapper adding retry functionality without replacing the actual fetch.
 
 ### Setup
 

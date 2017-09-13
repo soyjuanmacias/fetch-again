@@ -1,12 +1,13 @@
+var environment = typeof module !== 'undefined' && module.exports ? global : window;
+
 (function checkForFetch() {
     var polyfillUrl = 'https://github.com/github/fetch';
-    var environment = typeof module !== 'undefined' && module.exports ? global : window;
     if (!environment || !environment.fetch) {
         throw new Error('Seems that fetch is not supported in your environment, take a look at the polyfill here: ' + polyfillUrl);
     }
 })();
 
-window.fetchAgain = function fetchAgain(url) {
+environment.fetchAgain = function fetchAgain(url) {
     var requestLimit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 3;
     var delay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1000;
     var fetchOptions = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
