@@ -1,6 +1,7 @@
 (function checkForFetch() {
     const polyfillUrl = 'https://github.com/github/fetch';
-    if (!window || !window.fetch) {
+    let environment = (typeof module !== 'undefined' && module.exports) ? global : window;
+    if (!environment || !environment.fetch) {
         throw new Error(`Seems that fetch is not supported in your environment, take a look at the polyfill here: ${polyfillUrl}`);
     }
 })();

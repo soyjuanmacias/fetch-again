@@ -2,11 +2,8 @@
 
 fetch wrapper adding retry and timeout functionality without replacing the actual fetch.
 
-### Polyfill
-
-If your browser does not support fetch api have a look at the [polyfill](https://github.com/github/fetch).
-
 ### Setup
+
 Install as a dependency:
 
 ```bash
@@ -27,6 +24,10 @@ import 'fetch-again';
 ```
 
 ```fetchAgain()``` will be now available from window
+
+#### Suported environments
+
+An script will automatically check if your environment supports the ```fetch API```, if it doesn't an error will be thrown suggesting to look at the [polyfill](https://github.com/github/fetch).
 
 ### API
 
