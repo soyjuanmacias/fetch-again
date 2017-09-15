@@ -14,9 +14,24 @@ var environment = typeof module !== 'undefined' && module.exports ? global : win
 })();
 
 environment.fetchAgain = function fetchAgain(url) {
-    var requestLimit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 3;
-    var delay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1000;
-    var fetchOptions = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+    var fetchOptions = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var requestLimit = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+    var retryDelay = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1000;
+
+    if (requestLimit < 1) {
+        throw new Error('Invalid arguments: requestLimit should be at least 1.');
+    }
+    if (retryDelay < 1) {
+        throw new Error('Invalid arguments: delay should be at least 1.');
+    }
+
+    function callFetch() {
+        return environment.fetch(url, fetchOptions);
+    }
+
+    if (requestLimit === 1) {
+        return callFetch();
+    }
 
     return new Promise(function (resolve, reject) {
         function success(response) {
@@ -25,18 +40,18 @@ environment.fetchAgain = function fetchAgain(url) {
         function failure(error) {
             requestLimit--;
             if (requestLimit) {
-                setTimeout(callFetch, delay);
+                setTimeout(callFetchAgain, retryDelay);
             } else {
                 reject(error);
             }
         }
         function finalFailure(finalError) {
-            throw finalError;
+            reject(finalError);
         }
-        function callFetch() {
-            return window.fetch(url, fetchOptions).then(success).catch(failure).catch(finalFailure);
+        function callFetchAgain() {
+            return callFetch().then(success).catch(failure).catch(finalFailure);
         }
-        callFetch();
+        callFetchAgain();
     });
 };
 

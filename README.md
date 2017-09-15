@@ -1,6 +1,6 @@
 # FETCH-AGAIN
 
-fetch wrapper adding retry functionality without replacing the actual fetch (> 2.0 Kb).
+fetch wrapper adding retry functionality without replacing the actual fetch (2.0 Kb, 1.0 Kb. minified).
 
 ### Setup
 
@@ -47,25 +47,41 @@ Note: this package is not restricted to work only in browsers, if you somehow us
 ### API
 
 ```js
-fetchAgain(url, requestLimit, delay, fetchOptions)
+fetchAgain(url, fetchOptions, requestLimit, retryDelay)
     .then((response) => console.log(response))
     .catch((error)) => console.log(error));
 ```
 * ```url:``` address to fetch (default undefined)
-* ```requestLimit:``` number of times to attemp fetching (default 3)
-* ```delay:``` number of milliseconds to wait for next fetch if the actual one fails (defaul 1000)
 * ```fetchOptions:``` options for [fetch API](https://github.github.io/fetch), can be an object or a Request (default {})
+* ```requestLimit:``` number of times to attemp fetching (default 1)
+* ```retryDelay:``` number of milliseconds to wait for next fetch if the actual one fails (defaul 1000)
+
+If requestLimit not specified by default will act like a normal fetch.
 
 ### Example
 
 ```js
-fetchAgain('https://www.somedomain.io', 5 , 2000 , {
+const fetchOptions = {
         method: 'POST',
         content:'no-cors'
-    })
+};
+
+fetchAgain('https://www.somedomain.io', fetchOptions, 5 , 2000 , )
+    .then((response) => console.log(response))
+    .catch((error)) => console.log(error));
+
+
+// using it as a normal fetch:
+fetchAgain('https://www.somedomain.io', fetchOptions)
     .then((response) => console.log(response))
     .catch((error)) => console.log(error));
 ```
+
+### Changelog
+
+* Changed API so if no ```requestLimit``` is specified it defaults to ```1```, therefore allowing to use it like a the default ```fetch``` whith out the need to pass 0 to ```requestLimit``` and ```retryDelay``` in order to specify the ```fetchOptions```.
+* Slight performance improvements when no retries will be attempted.
+* Added minified version.
 
 ### License
 
