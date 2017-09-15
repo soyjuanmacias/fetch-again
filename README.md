@@ -1,6 +1,6 @@
 # FETCH-AGAIN
 
-fetch wrapper adding retry functionality without replacing the actual fetch.
+fetch wrapper adding retry functionality without replacing the actual fetch (> 2.0 KB).
 
 ### Setup
 
@@ -23,11 +23,26 @@ import 'fetch-again';
 <script src="dist/fetch-again.umd.js"></script>
 ```
 
-```fetchAgain()``` will be now available from window
+```fetchAgain()``` will be now available from ```window```.
 
-#### Suported environments
+#### Module Formats
+
+There are three module formats beign distributed whith this package, ```UMD```, ```ES2015``` and ```ES6```, for loading an specific one configure your loader to use ```main```, ```module``` or ```jsnext:main``` properties of ```package.json```, respectively. There is also a mified version for the ```UMD``` module.
+
+You can also opt for importing a concrete bundle from ```dist``` folder:
+
+```js
+import 'fetch-again/dist/fetch-again'; // ES2015
+import 'fetch-again/dist/fetch-again.umd'; // UMD
+import 'fetch-again/dist/fetch-again.umd.min; // UMD minified
+import 'node_modules/fetch-again/index; //ES6
+```
+
+#### Supported environments
 
 An script will automatically check if your environment supports the ```fetch API```, if it doesn't an error will be thrown suggesting to look at the [polyfill](https://github.com/github/fetch).
+
+Note: this package is not restricted to work only in browsers, if you somehow use fetch in a Node.js environment then ```fetchAgain``` will be available from ```global```.
 
 ### API
 
