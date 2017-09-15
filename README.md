@@ -34,8 +34,8 @@ You can also opt for importing a concrete bundle from ```dist``` folder:
 ```js
 import 'fetch-again/dist/fetch-again'; // ES2015
 import 'fetch-again/dist/fetch-again.umd'; // UMD
-import 'fetch-again/dist/fetch-again.umd.min; // UMD minified
-import 'node_modules/fetch-again/index; //ES6
+import 'fetch-again/dist/fetch-again.umd.min'; // UMD minified
+import 'node_modules/fetch-again/index'; //ES6
 ```
 
 #### Supported environments
