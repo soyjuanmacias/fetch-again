@@ -1,7 +1,7 @@
 {
   "name": "fetch-again",
-  "version": "1.1.1",
-  "description": "fetch wrapper adding retry and timeout functionality without replacing the actual fetch",
+  "version": "1.1.2",
+  "description": "fetch wrapper adding retry functionality without replacing the actual fetch",
   "main": "dist/fetch-again.umd.js",
   "module": "dist/fetch-again.js",
   "jsnext:main": "index.js",
@@ -28,14 +28,10 @@
   "keywords": [
     "fetch",
     "fetch-again",
-    "fetch-retry",
-    "fetch-timeout"
+    "fetch-retry"
   ],
   "bugs": {
     "url": "https://github.com/isidrok/fetch-again/issues"
   },
-  "homepage": "https://github.com/isidrok/fetch-again#readme",
-  "dependencies": {
-    "rollup-plugin-commonjs": "^8.2.1"
-  }
+  "homepage": "https://github.com/isidrok/fetch-again#readme"
 }
