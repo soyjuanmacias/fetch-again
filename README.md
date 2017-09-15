@@ -1,6 +1,6 @@
 # FETCH-AGAIN
 
-fetch wrapper adding retry functionality without replacing the actual fetch (> 2.0 KB).
+fetch wrapper adding retry functionality without replacing the actual fetch (> 2.0 Kb).
 
 ### Setup
 
