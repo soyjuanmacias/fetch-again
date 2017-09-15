@@ -37,9 +37,9 @@ fetchAgain(url, requestLimit, delay, fetchOptions)
     .catch((error)) => console.log(error));
 ```
 * ```url:``` address to fetch (default undefined)
-* ```requestLimit:``` number of retimes to attemp fetching (default 3)
+* ```requestLimit:``` number of times to attemp fetching (default 3)
 * ```delay:``` number of milliseconds to wait for next fetch if the actual one fails (defaul 1000)
-* ```fetchOptions:``` options for [fetch API](https://github.github.io/fetch), can be an object or a Request (default undefined)
+* ```fetchOptions:``` options for [fetch API](https://github.github.io/fetch), can be an object or a Request (default {})
 
 ### Example
 
