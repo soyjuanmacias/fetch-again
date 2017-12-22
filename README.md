@@ -27,7 +27,7 @@ import 'fetch-again';
 
 #### Module Formats
 
-There are three module formats beign distributed whith this package, ```UMD```, ```ES2015``` and ```ES6```, for loading an specific one configure your loader to use ```main```, ```module``` or ```jsnext:main``` properties of ```package.json```, respectively. There is also a mified version for the ```UMD``` module.
+There are three module formats beign distributed whith this package, ```UMD```, ```ES2015``` and ```ES6```, for loading an specific one configure your loader to use ```main```, ```module``` or ```jsnext:main``` properties of ```package.json```, respectively. There is also a minified version for the ```UMD``` module.
 
 You can also opt for importing a concrete bundle from ```dist``` folder:
 
